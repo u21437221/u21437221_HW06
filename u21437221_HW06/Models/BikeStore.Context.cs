@@ -13,10 +13,10 @@ namespace u21437221_HW06.Models
     using System.Data.Entity;
     using System.Data.Entity.Infrastructure;
     
-    public partial class BikeStoresEntities : DbContext
+    public partial class BikeStoresDB : DbContext
     {
-        public BikeStoresEntities()
-            : base("name=BikeStoresEntities")
+        public BikeStoresDB()
+            : base("name=BikeStoresDB")
         {
         }
     
