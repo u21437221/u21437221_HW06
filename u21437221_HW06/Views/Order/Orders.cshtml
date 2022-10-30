@@ -1,0 +1,49 @@
+﻿@*@using u21437221_HW06.Models
+@model List<Order>*@
+@model PagedList.IPagedList<u21437221_HW06.Models.Order>
+@using PagedList.Mvc
+<link href="~/Content/PagedList.css" rel="stylesheet" />
+@{
+    ViewBag.Title = "Orders";
+}
+
+<h2>Orders</h2>
+@*@using(Html.BeginForm("Orders","Order",FormMethod.Get, new { enctype = "multipart/form-data" }))
+ {*@
+    <form id="form1" method="post">
+        <div class="form-input"> 
+            <input type="date" name="date" id="date" value="date" />
+            <button class="btn btn-primary" type="submit" value="submit">Search</button>
+        </div>
+    </form>
+    <h3>Order</h3>
+    <table>
+        <thead>
+            <tr>
+                <th>Product Name</th>
+                <th>List Price</th>
+                <th>Quantity</th>
+                <th>Total</th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach(var item in Model)
+             {
+                <tr>
+                    <td>@item.ProductName</td>
+                    <td>@item.ListPrice</td>
+                    <td>@item.Quantity</td>
+                    <td>@item.Total</td>
+                </tr>
+                <tr>
+                    <td></td>
+                    <td></td>
+                    <td>Grand Total</td>
+                    <td>@item.Total += @item.Total</td>
+                </tr>
+             }
+        </tbody>
+    </table>
+@Html.PagedListPager(Model,PageNumber => Url.Action("Orders", new { PageNumber }))
+ @*}*@
+
